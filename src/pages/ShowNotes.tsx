@@ -7,22 +7,22 @@ import { MdDelete } from "react-icons/md";
 import { MdModeEdit } from "react-icons/md";
 import { FaSave } from "react-icons/fa";
 import { TbArrowBackUp } from "react-icons/tb";
+import { Link } from "react-router-dom";
 
 function ShowNotes() {
   const BACKENDURL = import.meta.env.VITE_BACKEND_URL;
   const [notes, setNotes] = useState<NoteProps[]>([]);
-  
+
   const [loading, setLoading] = useState(true);
-  const [isUpdating, setIsUpdating] = useState(false);
+  const [isUpdating, setIsUpdating] = useState<null | number>(null);
 
   const [editTitle, setEditTitle] = useState("");
   const [editContent, setEditContent] = useState("");
 
   async function modNote(id: number) {
-
-    if(editTitle === "" || editContent === ""){
-      toast("Existen campos vacios")
-      return
+    if (editTitle === "" || editContent === "") {
+      toast("Existen campos vacios");
+      return;
     }
     try {
       setLoading(true);
@@ -32,7 +32,7 @@ function ShowNotes() {
       });
       console.log(response);
       toast.success("Nota actualizada correctamente.");
-      setIsUpdating(false);
+      setIsUpdating(null);
       fecthNotes();
     } catch (error: any) {
       toast.error("Ha ocurrido un error. Intenta de nuevo más tarde");
@@ -51,7 +51,7 @@ function ShowNotes() {
         toast("Nota eliminada con éxito");
         //"Devuélveme todas las notas cuyo id sea diferente al id que quiero eliminar"
         setNotes((prev) => prev.filter((note) => note.id !== id));
-        setIsUpdating(false);
+        setIsUpdating(null);
       } catch (error: any) {
         toast.error("Ha ocurrido un error. Intenta de nuevo más tarde");
         console.log(error);
@@ -81,14 +81,21 @@ function ShowNotes() {
   }, []);
 
   return (
-    <div className="p-4 flex flex-col max-h-full">
-      <Title text="Mis Notas" />
+    <div className="p-4 flex flex-col  items-center w-full">
+         <Title text="Mis Notas" />
 
       {loading ? (
         <div className="text-center mt-8">Cargando notas...</div>
       ) : notes.length === 0 ? (
-        <div className="text-center mt-8 text-gray-500">
+        <div className="text-center  text-gray-500 flex flex-col justify-center gap-5 h-fit">
           No hay ninguna nota
+          <div className="flex items-center justify-center gap-5 text-white font-light p-3 rounded-2xl bg-green-500 w-fit text-3xl hover:scale-105 duration-200">
+            <Link to={"/create-note"}>
+              <button className="cursor-pointer ">
+                Haz tu primer aporte aqui
+              </button>
+            </Link>
+          </div>
         </div>
       ) : (
         <div className="mt-4 space-y-10 flex  flex-col items-center  ">
@@ -96,14 +103,14 @@ function ShowNotes() {
             <div
               key={note.id}
               className={
-                isUpdating
+                isUpdating === note.id
                   ? "p-3 border bg-blue-100 border-gray-200  rounded shadow-lg transition w-2xl "
                   : "p-3 border bg-gray-100 border-gray-200  rounded shadow-lg transition w-2xl "
               }
             >
               {/* TITLE*/}
 
-              {isUpdating ? (
+              {isUpdating === note.id ? (
                 <input
                   className="font-semibold mb-2 w-full pl-1"
                   placeholder={note.title}
@@ -117,7 +124,7 @@ function ShowNotes() {
               {/* FINISH TITLE*/}
 
               {/* //CONTENT  */}
-              {isUpdating ? (
+              {isUpdating === note.id ? (
                 <textarea
                   className="text-gray-600 text-sm  rounded p-2 max-w-xs min-h-25 max-h-50 overflow-y-auto whitespace-pre-wrap wrap-break-word min-w-full bg-white"
                   placeholder={note.content}
@@ -146,7 +153,7 @@ function ShowNotes() {
                     />
                   </button>
 
-                  {isUpdating ? (
+                  {isUpdating === note.id ? (
                     <>
                       <button className="cursor-pointer text-blue-700 hover:scale-120 duration-200">
                         <FaSave
@@ -160,7 +167,7 @@ function ShowNotes() {
                         <TbArrowBackUp
                           size={20}
                           onClick={() => {
-                            setIsUpdating(false);
+                            setIsUpdating(null);
                             console.log("Finalizando modificacion");
                           }}
                         />
@@ -171,7 +178,7 @@ function ShowNotes() {
                       <MdModeEdit
                         size={20}
                         onClick={() => {
-                          setIsUpdating(true);
+                          setIsUpdating(note.id);
                           setEditContent(note.content);
                           setEditTitle(note.title);
                         }}

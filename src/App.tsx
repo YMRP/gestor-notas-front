@@ -3,6 +3,7 @@ import AppRoutes from "./router";
 import { toast, Toaster } from "sonner";
 import axios from "axios";
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 function App() {
   //interceptor para enviar el token automaticamente sin necesidad de hacerlo manual
@@ -18,11 +19,10 @@ function App() {
     });
 
     //interceptor para la expiracion del token
-     // 🔹 Interceptor para manejar 401 (pero ignorando login)
+    // 🔹 Interceptor para manejar 401 (pero ignorando login)
     const responseInterceptor = axios.interceptors.response.use(
       (response) => response,
       (error) => {
-
         const originalRequest = error.config;
 
         // 🚨 Ignorar el endpoint de login
@@ -36,7 +36,7 @@ function App() {
         }
 
         return Promise.reject(error);
-      }
+      },
     );
     //COLOQUE INCERPETORES DE TOKEN PARA CONTROLAR EL ENVIO YEXPICARIOPN DE TOKEN AUTOMATICO, PERO NO HE PROTEGIDO NINGUNA RUTA
     return () => {
@@ -47,7 +47,10 @@ function App() {
 
   return (
     <>
-      <Toaster position="top-right" />
+      <Toaster
+        position="top-right"
+       
+      />
       <BrowserRouter>
         <Routes>{AppRoutes}</Routes>
       </BrowserRouter>

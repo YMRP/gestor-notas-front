@@ -68,7 +68,7 @@ function Register() {
       <form className=" flex flex-col gap-4 " onSubmit={registerUser}>
         {/* EMAIL */}
         <div className="flex w-full flex-col">
-          <label className="text-white font-bold" htmlFor="emailtxt">
+          <label className="text-white " htmlFor="emailtxt">
             Email:{" "}
           </label>
           <input
@@ -76,7 +76,7 @@ function Register() {
             name="email"
             id="emailtxt"
             value={email}
-            className="rounded  border border-blue-300 bg-blue-300 focus:border-green-400 focus:outline focus:outline-transparent duration-200 p-1   text-blue-900"
+            className="rounded  border border-blue-300 bg-black-300 focus:border-green-400 focus:outline focus:outline-transparent duration-200 p-1   text-white"
             onChange={(e) => {
               setEmail(e.target.value);
             }}
@@ -84,7 +84,7 @@ function Register() {
         </div>
         {/* NOMBRE */}
         <div className="flex w-full flex-col">
-          <label className="text-white font-bold" htmlFor="nametxt">
+          <label className="text-white " htmlFor="nametxt">
             Nombre:{" "}
           </label>
           <input
@@ -92,7 +92,7 @@ function Register() {
             name="name"
             id="nametxt"
             value={nombre}
-            className="rounded  border border-blue-300 bg-blue-300 focus:border-green-400 focus:outline focus:outline-transparent duration-200 p-1   text-blue-900"
+            className="rounded  border border-blue-300 bg-black-300 focus:border-green-400 focus:outline focus:outline-transparent duration-200 p-1   text-white"
             onChange={(e) => {
               setNombre(e.target.value);
             }}
@@ -100,7 +100,7 @@ function Register() {
         </div>
         {/* CONTRASEÑA */}
         <div className="flex flex-col">
-          <label htmlFor="passwordtxt" className="text-white font-bold">
+          <label htmlFor="passwordtxt" className="text-white ">
             Contraseña:{" "}
           </label>
           <input
@@ -108,7 +108,7 @@ function Register() {
             name="password"
             id="passwordtxt"
             value={password}
-            className="rounded  border border-blue-300 bg-blue-300 focus:border-green-400 focus:outline focus:outline-transparent duration-200 p-1 text-blue-800"
+            className="rounded  border border-blue-300 bg-black-300 focus:border-green-400 focus:outline focus:outline-transparent duration-200 p-1 text-white"
             onChange={(e) => {
               setPassword(e.target.value);
             }}
@@ -116,7 +116,7 @@ function Register() {
         </div>
         {/* REPETIR CONTRASEÑA */}
         <div className="flex flex-col">
-          <label htmlFor="passwordtxt2" className="text-white font-bold">
+          <label htmlFor="passwordtxt2" className="text-white ">
             Repetir contraseña:{" "}
           </label>
           <input
@@ -124,22 +124,22 @@ function Register() {
             name="password2"
             value={secondPass}
             id="passwordtxt2"
-            className="rounded  border border-blue-300 bg-blue-300 focus:border-green-400 focus:outline focus:outline-transparent duration-200 p-1 text-blue-800"
+            className="rounded  border border-blue-300 bg-black-300 focus:border-green-400 focus:outline focus:outline-transparent duration-200 p-1 text-white"
             onChange={(e) => {
               setSecondPass(e.target.value);
             }}
           />
         </div>
 
-        <button className="w-full flex  bg-green-400 items-center hover:bg-green-300 duration-200 rounded ">
+        <button className="w-full flex  bg-blue-400 items-center hover:bg-blue-300 duration-200 rounded font- ">
           {loading ? <input
             type="submit"
             value="Cargando..."
-            className=" w-full hover:cursor-pointer font-bold text-blue-500-900 p-1"
+            className=" w-full hover:cursor-pointer  text-blue-500-900 p-1"
           /> : <input
             type="submit"
             value="Registrar"
-            className=" w-full hover:cursor-pointer font-bold text-green-900 p-1"
+            className=" w-full hover:cursor-pointer  text-black-900 p-1"
           />}
         </button>
 
@@ -148,7 +148,7 @@ function Register() {
             <input
               type="button"
               value="Iniciar Sesion"
-              className=" w-full hover:cursor-pointer font-bold text-yellow-900 p-1"
+              className=" w-full hover:cursor-pointer  textblack p-1"
             />
           </button>
         </Link>

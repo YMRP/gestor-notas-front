@@ -1,19 +1,30 @@
-import { GiNotebook } from "react-icons/gi";
 import { getUserFromToken } from "../utils/getUserFromToken";
-
 function Dashboard() {
-  const user = getUserFromToken()
+  const user = getUserFromToken();
+  console.log(user)
   return (
-    <div className=" p-4 flex flex-col items-center justify-center gap-3 w-full h-full">
-      <h1 className="text-5xl font-bold mb-4">
-        Bienvenido {user?.name}
-      </h1>
+    <div className="relative min-h-screen w-full overflow-hidden">
+      
+     
 
-      <p className="text-4xl">
-        Creado con REACT JS, AXIOS, MYSQL, JAVA SPRING BOOT, JWT
-      </p>
+      {/* Content */}
+      
+      <div className="relative p-4 flex flex-col items-center justify-center gap-6 min-h-screen text-center text-black">
+        <h1 className="text-5xl font-bold">
+          ¡Hola, {user?.name}!
+        </h1>
 
-      <GiNotebook size={300} />
+        <p className="text-2xl">Gestiona todas tus notas personales a tu gusto con las siguientes acciones:</p>
+
+        <div className="flex w-full items-center justify-center gap-5  font-bold ">
+          <button className="bg-amber-400 p-6 text-amber-900 ">Agregar</button>
+          <button className="bg-red-400 p-6 text-red-900">Modificar</button>
+          <button className="bg-blue-400 p-6 text-blue-900">Consultar</button>
+          <button className="bg-green-400 p-6 text-green-900">Eliminar</button>
+        </div>
+
+      </div>
+
     </div>
   );
 }

@@ -1,31 +1,28 @@
 import Aside from "./Aside";
-import Footer from "./Footer";
-import Header from "./Header";
+
 import { Outlet } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
 function Layout() {
-
-
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      <main className="flex-1 flex ">
+    <div className="h-screen flex flex-col overflow-hidden ">
+      {/* <Header /> */}
+      <main className="flex-1 flex min-h-0 ">
         <Aside />
-        <section className=" flex flex-1  flex-col">
+        <section className=" flex flex-1  flex-col overflow-y-auto  bg-[url('/background.svg')] bg-cover bg-center">
+            {/* //Background */}
+      {/* inset es top: 0;
+right: 0;
+bottom: 0;
+left: 0; */}
+      {/* <div className="absolute inset-0 -z-10">
+        <img src="/background.svg" alt="Bakcground" className="w-full h-full object-cover" />
+      </div> */}
+
           {/* Outlet me permite ubicar lo que se renderizará, ajeno a esto queda estatico */}
-          <AnimatePresence mode="wait">
-            <motion.div  className="w-full h-full flex-1"
-            key={location.pathname}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -30 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}>
-              <Outlet   />
-            </motion.div>
-          </AnimatePresence>
+
+          <Outlet />
         </section>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

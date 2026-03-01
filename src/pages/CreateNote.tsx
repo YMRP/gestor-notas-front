@@ -43,11 +43,11 @@ function CreateNote() {
   }
 
   return (
-    <div className="p-6 max-w-3xl mx-auto flex flex-col ">
+    <div className="p-6 w-full mx-auto flex flex-col items-center h-full justify-center">
       <Title text="Crear una nota" />
 
       <form
-        className="mt-6 space-y-4  p-6 rounded shadow-xl border border-gray-200 flex flex-col "
+        className="mt-6 space-y-4  p-6 rounded shadow-xl border border-gray-200 flex flex-col w-1/2 bg-gray-100 overflow-hidden "
         onSubmit={submitNote}
       >
         <div className="flex gap-4 flex-col  ">
@@ -57,7 +57,7 @@ function CreateNote() {
           <input
             type="text"
             id="titlenote"
-            className=" px-2 py-1 rounded border w-full border-gray-300 duration-200 focus:outline focus:border-green-400 focus:outline-green-600"
+            className=" px-2 py-1 rounded border w-full bg-white border-white duration-200 focus:outline focus:border-green-400 focus:outline-green-600"
             placeholder="Ideas para mi proyecto"
             name="title"
             onChange={(e) => {
@@ -73,7 +73,7 @@ function CreateNote() {
           <textarea
             name="content"
             id="contentnote"
-            className=" px-2 py-1 rounded border w-full border-gray-300 duration-200 focus:outline focus:border-green-400 focus:outline-green-600"
+            className=" px-2 py-1 rounded border w-full bg-white border-white duration-200 focus:outline focus:border-green-400 focus:outline-green-600"
             placeholder="Ingresa aqui tus ideas"
             onChange={(e) => setContent(e.target.value)}
           ></textarea>

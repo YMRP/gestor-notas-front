@@ -1,6 +1,6 @@
 
 export type OptionAsideProps = {
-    ReactIcon : React.ReactNode
+    ReactIcon? : React.ReactNode
     text?: String
 }
 

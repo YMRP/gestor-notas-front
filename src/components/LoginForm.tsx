@@ -66,7 +66,7 @@ function LoginForm() {
     
       <form className=" flex flex-col gap-4 " onSubmit={login}>
         <div className="flex w-full flex-col">
-          <label className="text-white font-bold" htmlFor="emailtxt">
+          <label className="text-white " htmlFor="emailtxt">
             Email:{" "}
           </label>
           <input
@@ -74,13 +74,13 @@ function LoginForm() {
             name="email"
             id="emailtxt"
             value={email}
-            className="rounded  border border-blue-300 bg-blue-300 focus:border-green-400 focus:outline focus:outline-transparent duration-200 p-1   text-blue-900"
+            className="rounded  border border-blue-300 bg-black-50 focus:border-green-400 focus:outline focus:outline-transparent duration-200 p-1   text-gray-100"
 
             onChange={(e)=>{setEmail(e.target.value)}}
           />
         </div>
         <div className="flex flex-col">
-          <label htmlFor="passwordtxt" className="text-white font-bold">
+          <label htmlFor="passwordtxt" className="text-white ">
             Contraseña:{" "}
           </label>
           <input
@@ -88,26 +88,26 @@ function LoginForm() {
             name="password"
             value={password}
             id="passwordtxt"
-            className="rounded  border border-blue-300 bg-blue-300 focus:border-green-400 focus:outline focus:outline-transparent duration-200 p-1 text-blue-800"
+            className="rounded  border border-blue-300 bg-black-300 focus:border-green-400 focus:outline focus:outline-transparent duration-200 p-1 text-gray-100"
 
             onChange={(e)=>{setPassword(e.target.value)}}
           />
         </div>
 
-        <button className="w-full flex  bg-green-400 items-center hover:bg-green-300 duration-200 rounded ">
+        <button className="w-full flex  bg-blue-400 items-center hover:bg-blue-300 duration-200 rounded ">
           {/* <input
             type="submit"
             value="Ingresar"
-            className=" w-full hover:cursor-pointer font-bold text-green-900 p-1"
+            className=" w-full hover:cursor-pointer  text-green-900 p-1"
           /> */}
           {loading ? <input
             type="submit"
             value="Cargando..."
-            className=" w-full hover:cursor-pointer font-bold text-blue-500-900 p-1"
+            className=" w-full hover:cursor-pointer  text-black-500-900 p-1"
           /> : <input
             type="submit"
             value="ingresar"
-            className=" w-full hover:cursor-pointer font-bold text-green-900 p-1"
+            className=" w-full hover:cursor-pointer  text-black-900 p-1"
           />}
         </button>
 
@@ -116,7 +116,7 @@ function LoginForm() {
             <input
               type="button"
               value="Registrar"
-              className=" w-full hover:cursor-pointer font-bold text-yellow-900 p-1"
+              className=" w-full hover:cursor-pointer  text-black p-1"
             />
           </button>
         </Link>

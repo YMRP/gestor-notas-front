@@ -7,8 +7,10 @@ import Register from "./components/RegisterForm";
 import LoginForm from "./components/LoginForm";
 import ProtectedRoute from "./components/ProtectedRoute";
 import CreateNote from "./pages/CreateNote";
-//ESTA ES UN ARBOIL DE ELEMENTOS
-//SIMILAR A " const x = <h1>Hola</h1> "
+import About from "./pages/About";
+import User from "./pages/User";
+
+
 
 export const AppRoutes = (
   <>
@@ -22,6 +24,8 @@ export const AppRoutes = (
         <Route element={<Dashboard />} path="dashboard" />
         <Route element={<ShowNotes />} path="show-notes" />
         <Route element={<CreateNote/>} path="create-note" />
+        <Route element = {<About/>} path="about"/>
+        <Route element = {<User/>} path="user"/>
       </Route>
     </Route>
   </>
