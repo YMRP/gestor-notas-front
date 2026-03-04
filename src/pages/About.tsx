@@ -8,10 +8,10 @@ import { BiLogoTypescript } from "react-icons/bi";
 
 function About() {
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
+    <div className="flex flex-col items-center justify-center h-screen overflow-x-hidden min-w-0 ">
       <Title text={"Acerca de..."} />
 
-      <p className="text-center bg-transparent border-gray-500 w-2xl h-fit mb-2   "> 
+      <p className="text-center bg-transparent border-gray-500 w-2xl h-fit mb-2 max-md:w-full "> 
         Este sistema fue creado con el objetivo de centralizar y organizar
         información mediante notas digitales. Permite a los usuarios gestionar
         su contenido de forma intuitiva, manteniendo seguridad y control de

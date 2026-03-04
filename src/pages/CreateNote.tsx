@@ -12,30 +12,23 @@ function CreateNote() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
- 
-
   async function submitNote(e: any) {
     e.preventDefault();
 
-
-    if(content == "" || title == ""){
-        toast.error("Existen campos vacios")
-        return
+    if (content == "" || title == "") {
+      toast.error("Existen campos vacios");
+      return;
     }
 
-    
-
     try {
-
-       await axios.post(`${URLBACKEND}api/notes`, {
+      await axios.post(`${URLBACKEND}api/notes`, {
         title: title,
         content: content,
       });
 
-
-      toast("Nota creada con éxito")
-      setContent("")
-      setTitle("")
+      toast("Nota creada con éxito");
+      setContent("");
+      setTitle("");
     } catch (error) {
       console.log(error);
       toast.error("Ha ocurrido un error, intenta más tarde");
@@ -43,48 +36,59 @@ function CreateNote() {
   }
 
   return (
-    <div className="p-6 w-full mx-auto flex flex-col items-center h-full justify-center">
+  <div className="min-h-screen w-full flex items-center justify-center px-4 py-10 overflow-x-hidden">
+    <div className="w-full max-w-2xl">
       <Title text="Crear una nota" />
 
       <form
-        className="mt-6 space-y-4  p-6 rounded shadow-xl border border-gray-200 flex flex-col w-1/2 bg-gray-100 overflow-hidden "
         onSubmit={submitNote}
+        className="mt-6 space-y-6 p-6 rounded-xl shadow-xl border border-gray-200 
+                   bg-gray-100/90 w-full"
       >
-        <div className="flex gap-4 flex-col  ">
+        {/* Título */}
+        <div className="flex flex-col gap-2">
           <label htmlFor="titlenote" className="font-bold">
             Título:
           </label>
           <input
             type="text"
             id="titlenote"
-            className=" px-2 py-1 rounded border w-full bg-white border-white duration-200 focus:outline focus:border-green-400 focus:outline-green-600"
+            className="w-full px-3 py-2 rounded border bg-white 
+                       focus:outline-none focus:ring-2 focus:ring-green-500  border-gray-200"
             placeholder="Ideas para mi proyecto"
-            name="title"
-            onChange={(e) => {
-              setTitle(e.target.value);
-            }}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
           />
         </div>
 
-        <div className="flex gap-4  flex-col">
-          <label htmlFor="contentnote" className="font-bold ">
+        {/* Contenido */}
+        <div className="flex flex-col gap-2">
+          <label htmlFor="contentnote" className="font-bold">
             Contenido:
           </label>
           <textarea
-            name="content"
+            value={content}
             id="contentnote"
-            className=" px-2 py-1 rounded border w-full bg-white border-white duration-200 focus:outline focus:border-green-400 focus:outline-green-600"
+            rows={6}
+            className="w-full px-3 py-2 rounded border border-gray-200 bg-white resize-none
+                       focus:outline-none focus:ring-2 focus:ring-green-500"
             placeholder="Ingresa aqui tus ideas"
             onChange={(e) => setContent(e.target.value)}
-          ></textarea>
+          />
         </div>
 
-        <button className="bg-green-400 px-4 py-2 rounded cursor-pointer hover:bg-green-300 duration-200 font-bold">
-          Submit
+        {/* Botón */}
+        <button
+          type="submit"
+          className="w-full md:w-auto bg-green-500 px-6 py-3 rounded-lg 
+                     font-bold hover:bg-green-400 transition duration-200 cursor-pointer"
+        >
+          Crear Nota
         </button>
       </form>
     </div>
-  );
+  </div>
+);
 }
 
 export default CreateNote;

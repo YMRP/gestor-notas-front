@@ -38,7 +38,7 @@ export default function TypingText() {
   }, [index, isDeleting, text]);
 
   return (
-    <h3 className="font-bold text-3xl">
+    <h3 className="font-bold text-3xl max-md:text-xl">
       {displayedText}
       <span className="animate-pulse">|</span>
     </h3>
