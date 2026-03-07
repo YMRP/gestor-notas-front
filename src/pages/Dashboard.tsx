@@ -17,25 +17,25 @@ function Dashboard() {
 
         <div className="grid grid-cols-2 place-items-center gap-5 font-bold w-full md:flex md:justify-center ">
           <Link to={"/create-note"} className="max-md:w-full">
-            <button className="bg-amber-400 p-6 text-amber-900 hover:bg-amber-200 duration-200 w-full">
+            <button className="bg-amber-400 p-6 text-amber-900 hover:bg-amber-200 duration-200 w-full cursor-pointer">
               Agregar
             </button>
           </Link>
 
           <Link to={"/show-notes"} className="max-md:w-full">
-            <button className="bg-red-400 p-6 text-red-900 hover:bg-red-200 duration-200 w-full">
+            <button className="bg-red-400 p-6 text-red-900 hover:bg-red-200 duration-200 w-full cursor-pointer">
               Modificar
             </button>
           </Link>
 
           <Link to={"/show-notes"} className="max-md:w-full">
-            <button className="bg-blue-400 p-6 text-blue-900 hover:bg-blue-200 duration-200 w-full">
+            <button className="bg-blue-400 p-6 text-blue-900 hover:bg-blue-200 duration-200 w-full cursor-pointer">
               Consultar
             </button>
           </Link>
 
           <Link to={"/show-notes"} className="max-md:w-full">
-            <button className="bg-green-400 p-6 text-green-900 hover:bg-green-200 duration-200 w-full">
+            <button className="bg-green-400 p-6 text-green-900 hover:bg-green-200 duration-200 w-full cursor-pointer">
               Eliminar
             </button>
           </Link>
