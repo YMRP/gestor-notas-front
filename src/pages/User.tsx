@@ -33,7 +33,6 @@ function User() {
       window.location.href = "/";
     } catch (error) {
       toast.error("Contraseña incorrecta o error del servidor");
-      console.log(error);
     }
   }
 
@@ -54,7 +53,6 @@ function User() {
       setUserData(response.data);
     } catch (e) {
       toast.error("Ha ocurrido un error. Inténtalo más tarde");
-      console.log(e);
     }
   }
 
@@ -66,7 +64,6 @@ function User() {
       setUserData(response.data);
     } catch (error: any) {
       toast.error("Ha ocurrido un error. Inténtalo más tarde.");
-      console.log(error);
     }
   }
 

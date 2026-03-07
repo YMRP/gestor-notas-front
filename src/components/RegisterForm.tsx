@@ -38,6 +38,8 @@ function Register() {
     
    
     try {
+      setLoading(true); 
+
       const response = await axios.post(`${URLBACKEND}api/users`, {
         name: nombre,
         email: email,
@@ -55,6 +57,8 @@ function Register() {
     } catch (e) {
       console.log(e);
       toast.error("Ha ocurrido un error");
+    }finally{
+      setLoading(false);
     }
   }
 

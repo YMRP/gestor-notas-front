@@ -30,7 +30,6 @@ function CreateNote() {
       setContent("");
       setTitle("");
     } catch (error) {
-      console.log(error);
       toast.error("Ha ocurrido un error, intenta más tarde");
     }
   }

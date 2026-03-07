@@ -40,7 +40,6 @@ function LoginForm() {
        
       );
       localStorage.setItem("token",response.data.token)
-      console.log(response.data)
 
       setEmail("")
       setPassword("")
@@ -48,7 +47,6 @@ function LoginForm() {
       navigate("/dashboard")
     } catch (error: any) {
       if(error.response.status === 401){
-        console.log(error.response.status)
         toast.error("Credenciales incorrectas")
         return
       }

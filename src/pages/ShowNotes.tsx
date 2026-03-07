@@ -44,7 +44,6 @@ function ShowNotes() {
       fecthNotes();
     } catch (error: any) {
       toast.error("Ha ocurrido un error. Intenta de nuevo más tarde");
-      console.log(error);
     } finally {
       setLoading(false);
     }
@@ -67,7 +66,6 @@ function ShowNotes() {
         setIsUpdating(null);
       } catch (error: any) {
         toast.error("Ha ocurrido un error. Intenta de nuevo más tarde");
-        console.log(error);
       }
     }
   }
@@ -85,7 +83,6 @@ function ShowNotes() {
       setNotes(response.data);
     } catch (error: any) {
       toast.error("Ocurrió un error, inténtalo de nuevo más tarde");
-      console.log(error);
     } finally {
       setLoading(false);
     }
